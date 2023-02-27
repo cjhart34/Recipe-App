@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RecipeApp Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
+    <!-- CSS CUSTOM -->
+    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
+    <style type="text/css">
+        body {
+            background: url("{% static 'recipes/images/home_background.jpg' %}") no-repeat fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <img id="logo" src="{% static 'recipes/images/logo.png' %}" width="150px">
+        <input id="search" type="text" placeholder="   Search for Ingredient">
+    </div>
+
+    <div class="recipe_grid">
+        {% for object in object_list %}
+        <div class="grid_item">
+            <h4><a class="recipe_name" href="{{object.get_absolute_url}}"> {{object.name}} </a></h4>
+            <div style="margin-bottom: 10px;">
+                <b>Cooking Time: </b> {{object.cooking_time}} <br>
+                <b>Difficulty: </b> {{object.calculate_difficulty}} <br>
+            </div>
+            <img class="food_images" src="{{object.pic.url}}" />
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

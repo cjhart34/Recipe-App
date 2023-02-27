@@ -1,13 +1,36 @@
 <!DOCTYPE html>
-<html>
-<title>
-    Recipes App Home
-</title>
+<html lang="en">
+
+<head>
+    <title>RecipeApp Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
+    <style type="text/css">
+        body {
+            background: url("{% static 'recipes/images/home_background.jpg' %}") no-repeat fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30vh;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+        }
+
+        img {
+            border-radius: 15px;
+        }
+    </style>
+</head>
 
 <body>
-    <h1 style='display: flex; justify-content: center; margin-top: 150px;'>
-        Welcome to My Recipes App
-    </h1>
+    <h1>Welcome to My Recipe App</h1>
+    <img src="{% static 'recipes/images/logo.png' %}" width="300px">
 </body>
 
 </html>
