@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RecipeApp | Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
+    <style type="text/css">
+        body {
+            background: url("{% static 'recipes/images/home_background.jpg' %}") no-repeat fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth_modal">
+        <h1>Login</h1> {% comment %} print heading {% endcomment %}
+
+        {% comment %} check for error message {% endcomment %}
+        {% if error_message %}
+        <div id="error_login">
+            {{error_message}}
+        </div>
+        {% endif %}
+
+        {% comment %} print form {% endcomment %}
+        <form action="" method="POST">
+            {% comment %} add Django security token {% endcomment %}
+            {% csrf_token %}
+
+            {% comment %} print form received from view {% endcomment %}
+            <div class="form_input">
+                {{form}}
+            </div>
+
+            {% comment %} add button {% endcomment %}
+            <button type="submit" class="login_btn">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>

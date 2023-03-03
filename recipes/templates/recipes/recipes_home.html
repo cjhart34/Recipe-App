@@ -17,8 +17,9 @@
             margin-top: 30vh;
         }
 
-        h1 {
-            font-size: 50px;
+        h1,
+        h3 {
+            color: rgb(7, 120, 90);
             font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
         }
 
@@ -29,8 +30,10 @@
 </head>
 
 <body>
-    <h1>Welcome to My Recipe App</h1>
     <img src="{% static 'recipes/images/logo.png' %}" width="300px">
+    <h1>Welcome to My Recipe App</h1>
+    <h3>Log-in to your account to see our list of recipes</h3>
+    <a href="{%url 'login' %}" class="login_btn"> Login </a>
 </body>
 
 </html>

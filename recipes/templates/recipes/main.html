@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
-    <!-- CSS CUSTOM -->
     <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
     <style type="text/css">
         body {
@@ -18,8 +17,15 @@
 
 <body>
     <div class="nav-bar">
-        <img id="logo" src="{% static 'recipes/images/logo.png' %}" width="150px">
-        <input id="search" type="text" placeholder="   Search for Ingredient">
+        <img id="logo" src="{% static 'recipes/images/logo.png' %}" height="100px" width="150px">
+        <div class="search_box">
+            <input id="search" type="text" placeholder="   Search for Ingredient">
+            <img src="{% static 'recipes/images/search.png' %}" width="50">
+            </a>
+        </div>
+        <a href="{%url 'logout' %}" class="logout_btn">
+            Logout
+        </a>
     </div>
 
     <div class="recipe_grid">

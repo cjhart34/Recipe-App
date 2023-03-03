@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+.search_box {
+    display: flex;
+}
+
 .nav-bar {
     width: 80vw;
     height: 10vh;
@@ -12,32 +16,33 @@
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #search {
     background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid black;
-    border-radius: 7px;
-    height: 40px;
     margin: 12px 80px 12px 0;
-    width: 300px;
     font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
-    font-size: 17px;
+    width: 270px;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 0px;
 }
 
 #logo {
-    margin: 4px 0 4px 80px;
     border-radius: 3px;
 }
 
+
 .recipe_grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 23px 0 23px 23px;
     grid-gap: 23px;
     background: rgba(0, 0, 0, 0.5);
-    width: 70vw;
+    width: 75vw;
     margin: 0 auto;
     border-radius: 20px;
 }
@@ -46,9 +51,10 @@
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid black;
     border-radius: 7px;
-    width: 40vh;
-    padding: 0 0 15px 15px;
+    width: 32vh;
+    padding-bottom: 15px;
     font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+    text-align: center;
 }
 
 .food_images {
@@ -65,7 +71,19 @@
 }
 
 .recipe_name:hover {
-    color: rgb(132, 97, 11)
+    color: rgb(255, 116, 32);
+    transition: 200ms;
+}
+
+.auth_modal {
+    width: 25%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 5px 10px 15px;
+    margin: 10px auto;
+    margin-top: 23vh;
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
 }
 
 .details_modal {
@@ -86,4 +104,45 @@
 .details_short,
 .details_long {
     padding: 8px;
+}
+
+#error_login {
+    margin: 0 auto;
+    border: 3px solid rgb(243, 0, 0);
+    background-color: rgb(255, 116, 32);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.form_input {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.login_btn,
+.logout_btn,
+.back-home_btn {
+    width: 70px;
+    font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    background-color: rgb(255, 116, 32);
+    border-radius: 5px;
+    /* border: 0px; */
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.back-home_btn {
+    background-color: rgb(123, 49, 33);
+}
+
+.login_btn:hover,
+.logout_btn:hover,
+.back-home_btn:hover {
+    filter: brightness(125%);
+    transition: 200ms;
 }
