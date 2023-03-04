@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>RecipeApp | Logout</title>
+    <title>RecipeApp Logout</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
@@ -28,6 +28,7 @@
                    color: rgb(14, 59, 14)">Successfully Logged Out!</h2>
         <br>
         <a class="login_btn" href="{%url 'login' %}"> Login </a>
+        <a class="back-home_btn" href="{%url 'recipes:home' %}"> Home </a>
     </div>
 </body>
 

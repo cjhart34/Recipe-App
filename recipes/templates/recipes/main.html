@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>RecipeApp Home</title>
+    <title>RecipeApp Recipes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
@@ -19,9 +19,25 @@
     <div class="nav-bar">
         <img id="logo" src="{% static 'recipes/images/logo.png' %}" height="100px" width="150px">
         <div class="search_box">
-            <input id="search" type="text" placeholder="   Search for Ingredient">
-            <img src="{% static 'recipes/images/search.png' %}" width="50">
-            </a>
+            <form action="" method="GET" class="form">
+                {% csrf_token %}
+                <input type="text" name="recipe_search" class="form_search_input"
+                    placeholder="Search Recipes & Ingredients" value="{{ form.recipe_search.value }}" />
+            </form>
+            <br>
+            {{ form.recipe_search.value|default_if_none:"No search" }}
+
+            {% if 1 == 2 %}
+            <div class="search_results">
+                {% for object in object_list %}
+                {% if 'S' in object.name %}
+                <p style="display: flex;"><a class="recipe_name" href="{{object.get_absolute_url}}"> {{object.name}}
+                    </a></p>
+                <hr>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
         <a href="{%url 'logout' %}" class="logout_btn">
             Logout
@@ -40,6 +56,14 @@
         </div>
         {% endfor %}
     </div>
+    <a href="{%url 'recipes:search' %}" style="
+        color: white; 
+        background-color: rgba(0, 0, 0, 0.704); 
+        border-radius: 8px; 
+        padding: 7px;
+        text-decoration: none;">
+        Search Recipe Data
+    </a>
 </body>
 
 </html>

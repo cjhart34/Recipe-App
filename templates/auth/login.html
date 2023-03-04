@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>RecipeApp | Login</title>
+    <title>RecipeApp Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
@@ -38,6 +38,7 @@
 
             {% comment %} add button {% endcomment %}
             <button type="submit" class="login_btn">Login</button>
+            <button style="border: 0px;"><a class="back-home_btn" href="{%url 'recipes:home'%}"> Cancel </a></button>
         </form>
     </div>
 </body>

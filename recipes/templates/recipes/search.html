@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RecipeApp Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'recipes/css/styles.css' %}">
+    <style type="text/css">
+        body {
+            background: url("{% static 'recipes/images/home_background.jpg' %}") no-repeat fixed;
+            background-size: cover;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Roboto Mono', 'Calibri', 'Trebuchet MS', sans-serif;
+        }
+
+        .form_data {
+            background-color: rgba(0, 0, 0, 0.61);
+            border-radius: 10px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<h1 style="font-size: 45px">Search for recipes in our database</h1>
+<hr>
+<form action="" method="POST" class="form_data">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Search</button>
+
+</form>
+<br>
+<br>
+{% if recipe_df %}
+{{recipe_df|safe}}
+<br>
+<img alt='chart' src="data:image/png;base64, {{chart|safe}}">
+{% else %}
+<h3> no data</h3>
+{% endif %}
+
+</html>
