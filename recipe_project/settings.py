@@ -24,16 +24,16 @@ SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY', 'django-insecure-ml49cp(e)=yakpevh4xz)3w)6xuq6kv7g&3^xf^)gr-n3&p#%9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if not IS_HEROKU:
-    DEBUG = True
+# if not IS_HEROKU:
+#     DEBUG = True
 
-if IS_HEROKU:
-    DEBUG = True
+# if IS_HEROKU:
+#     DEBUG = True
 
-if IS_HEROKU:
-    ALLOWED_HOSTS = ['rocky-forest-91259.herokuapp.com/']
-else:
-    ALLOWED_HOSTS = ['*']
+# if IS_HEROKU:
+#     ALLOWED_HOSTS = ['rocky-forest-91259.herokuapp.com/']
+# else:
+ALLOWED_HOSTS = ['*', 'https://rocky-forest-91259.herokuapp.com/']
 
 # Application definition
 
