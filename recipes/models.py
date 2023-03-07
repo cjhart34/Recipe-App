@@ -14,7 +14,7 @@ class Recipe (models.Model):
     # pic = models.URLField(
     #     default='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg')
     pic_url = models.URLField(
-        default='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg')
+        default='no_image.svg')
 
     def calculate_difficulty(self):
         ingredients = self.ingredients.split(', ')
