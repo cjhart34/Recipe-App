@@ -28,9 +28,15 @@
 
         <div class="details_long">
             <b>Ingredients: </b> {{object.ingredients}} <br><br>
-            <b>Description: </b> {{object.description}} <br>
+            <b>Description: </b> {{object.description}} <br><br>
+            <button onclick="goBack()" class="login_btn">Back</button>
         </div>
     </div>
 </div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 </html>

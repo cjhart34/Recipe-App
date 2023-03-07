@@ -21,27 +21,26 @@
         <div class="search_box">
             <form action="" method="GET" class="form">
                 {% csrf_token %}
-                <input type="text" name="recipe_search" class="form_search_input"
-                    placeholder="Search Recipes & Ingredients" value="{{ form.recipe_search.value }}" />
+                <input type="text" name="recipe_search" class="form_search_input" id="searchbar"
+                    placeholder="Search Recipes" onkeyup="search_recipe()" />
             </form>
             <br>
-            {{ form.recipe_search.value|default_if_none:"No search" }}
-
-            {% if 1 == 2 %}
-            <div class="search_results">
+            <div class="search_results" autocomplete="off" style="display: none;">
                 {% for object in object_list %}
-                {% if 'S' in object.name %}
-                <p style="display: flex;"><a class="recipe_name" href="{{object.get_absolute_url}}"> {{object.name}}
-                    </a></p>
-                <hr>
-                {% endif %}
+                <p class="recipe_searched">
+                    <a class="recipe_name"
+                        style="font-size: 18px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                        href="{{object.get_absolute_url}}"> {{object.name}} </a>
+                </p>
                 {% endfor %}
             </div>
-            {% endif %}
         </div>
-        <a href="{%url 'logout' %}" class="logout_btn">
-            Logout
-        </a>
+        <div>
+            <a href="{%url 'recipes:search' %}" class="logout_btn">Display Recipe Data</a>
+        </div>
+        <div>
+            <a href="{%url 'logout' %}" class="logout_btn">Logout</a>
+        </div>
     </div>
 
     <div class="recipe_grid">
@@ -56,14 +55,15 @@
         </div>
         {% endfor %}
     </div>
-    <a href="{%url 'recipes:search' %}" style="
+    <!-- <a href="{%url 'recipes:search' %}" style="
         color: white; 
         background-color: rgba(0, 0, 0, 0.704); 
         border-radius: 8px; 
         padding: 7px;
         text-decoration: none;">
         Search Recipe Data
-    </a>
+    </a> -->
+    <script src="{% static 'recipes/js/js.js' %}"></script>
 </body>
 
 </html>

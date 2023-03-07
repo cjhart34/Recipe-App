@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>RecipeApp Recipes</title>
+    <title>RecipeApp Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="shortcut icon" href="{% static 'recipes/images/favicon.png' %}">
@@ -43,5 +43,14 @@
 {% else %}
 <h3> no data</h3>
 {% endif %}
+
+<br>
+<button onclick="goBack()" class="login_btn">Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 </html>
