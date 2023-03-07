@@ -1,5 +1,5 @@
 asgiref==3.6.0
-backports.zoneinfo;python_version<"3.8"
+backports.zoneinfo;python_version<"3.11"
 certifi==2022.12.7
 charset-normalizer==3.0.1
 contourpy==1.0.7
