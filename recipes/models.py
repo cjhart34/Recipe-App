@@ -10,7 +10,7 @@ class Recipe (models.Model):
     cooking_time = models.FloatField(help_text='in minutes')
     ingredients = models.CharField(max_length=350)
     description = models.TextField()
-    pic1 = models.ImageField(upload_to='recipes', default='no_image.svg')
+    # pic = models.ImageField(upload_to='recipes', default='no_image.svg')
     # pic = models.URLField(
     #     default='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg')
     pic = models.URLField(
