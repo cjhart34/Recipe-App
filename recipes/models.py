@@ -13,7 +13,7 @@ class Recipe (models.Model):
     # pic = models.ImageField(upload_to='recipes', default='no_image.svg')
     # pic = models.URLField(
     #     default='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg')
-    pic_url = models.URLField(
+    pic = models.URLField(
         default='no_image.svg')
 
     def calculate_difficulty(self):
