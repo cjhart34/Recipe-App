@@ -11,7 +11,9 @@ class Recipe (models.Model):
     ingredients = models.CharField(max_length=350)
     description = models.TextField()
     # pic = models.ImageField(upload_to='recipes', default='no_image.svg')
-    pic = models.URLField(
+    # pic = models.URLField(
+    #     default='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg')
+    pic_url = models.URLField(
         default='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg')
 
     def calculate_difficulty(self):
