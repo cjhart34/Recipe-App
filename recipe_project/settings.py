@@ -11,11 +11,10 @@ import dj_database_url
 from pathlib import Path
 import os
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# IS_HEROKU = "DYNO" in os.environ
+IS_HEROKU = "DYNO" in os.environ
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -25,16 +24,16 @@ SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY', 'django-insecure-ml49cp(e)=yakpevh4xz)3w)6xuq6kv7g&3^xf^)gr-n3&p#%9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# if not IS_HEROKU:
-#     DEBUG = True
+if not IS_HEROKU:
+    DEBUG = True
 
-# if IS_HEROKU:
-#     DEBUG = True
+if IS_HEROKU:
+    DEBUG = True
 
-# if IS_HEROKU:
-#     ALLOWED_HOSTS = ['rocky-forest-91259.herokuapp.com/']
-# else:
-ALLOWED_HOSTS = ['*', 'https://rocky-forest-91259.herokuapp.com/']
+if IS_HEROKU:
+    ALLOWED_HOSTS = ['stark-retreat-72788.herokuapp.com']
+else:
+    ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -45,9 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # recipe project related apps,
+    # recipe_project-related apps
     'recipes',
-    'users',
 ]
 
 MIDDLEWARE = [
@@ -135,8 +133,6 @@ STATICFILES_DIRS = [
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -154,4 +150,4 @@ DATABASES['default'].update(db_from_env)
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
