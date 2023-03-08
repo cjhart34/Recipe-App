@@ -1,4 +1,3 @@
-
 from django.db import models
 from django.shortcuts import reverse
 
@@ -10,21 +9,18 @@ class Recipe (models.Model):
     cooking_time = models.FloatField(help_text='in minutes')
     ingredients = models.CharField(max_length=350)
     description = models.TextField()
-    # pic = models.ImageField(upload_to='recipes', default='no_image.svg')
-    # pic = models.URLField(
-    #     default='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg')
-    pic = models.URLField(
-        default='no_image.svg')
+    pic = models.ImageField(upload_to='recipes', default='no_image.svg')
 
+    # calculate difficulty of recipe using cooking time and number of ingredients
     def calculate_difficulty(self):
         ingredients = self.ingredients.split(', ')
-        if self.cooking_time < 10 and len(ingredients) < 7:
+        if self.cooking_time < 30 and len(ingredients) < 7:
             difficulty = 'Easy'
-        elif self.cooking_time < 10 and len(ingredients) >= 7:
+        elif self.cooking_time < 30 and len(ingredients) >= 7:
             difficulty = 'Medium'
-        elif self.cooking_time >= 10 and len(ingredients) < 7:
+        elif self.cooking_time >= 30 and len(ingredients) < 7:
             difficulty = 'Intermediate'
-        elif self.cooking_time >= 10 and len(ingredients) >= 7:
+        elif self.cooking_time >= 30 and len(ingredients) >= 7:
             difficulty = 'Hard'
         return difficulty
 
